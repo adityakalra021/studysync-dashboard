@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudySync | Class 10 Board Exam Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="study-atmosphere" aria-hidden="true">
+    <span class="orb orb-amber"></span>
+    <span class="orb orb-violet"></span>
+    <span class="orb orb-blue"></span>
+    <span class="grid-haze"></span>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <aside class="sidebar" id="sidebar" aria-label="Study dashboard navigation">
+    <a class="brand" href="#dashboard" aria-label="StudySync home">
+      <span class="brand-mark">✷</span>
+      <span>
+        <strong>StudySync</strong>
+        <small>Night desk OS</small>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="nav-link active" href="#dashboard"><span>◐</span>Dashboard</a>
+      <a class="nav-link" href="#timetable"><span>▦</span>Timetable</a>
+      <a class="nav-link" href="#tasks"><span>☑</span>Homework</a>
+      <a class="nav-link" href="#subjects"><span>◈</span>Subjects</a>
+      <a class="nav-link" href="#exams"><span>◎</span>Exam Countdown</a>
+    </nav>
+
+    <section class="mentor-note glass-card compact-card">
+      <p class="label">Desk note</p>
+      <h2>One clean session beats five noisy hours.</h2>
+      <p>Tonight’s goal: finish the problem set, then close the loop with a 12-minute recall drill.</p>
+    </section>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="label">Class 10 board exam companion</p>
+        <h1>Build a calmer night before exams.</h1>
+      </div>
+      <div class="topbar-actions">
+        <label class="search-box" aria-label="Search dashboard">
+          <span>⌕</span>
+          <input id="globalSearch" type="search" placeholder="Search homework, notes, exams" />
+        </label>
+        <button class="profile-card auth-trigger" id="authTrigger" type="button" aria-label="Open account login">
+          <span class="avatar" id="profileAvatar">10</span>
+          <span><strong id="profileName">Class 10</strong><small id="profileStatus">Sign up or log in</small></span>
+        </button>
+      </div>
+    </header>
+
+    <section id="dashboard" class="section hero-layout reveal">
+      <article class="hero-card glass-card">
+        <div class="hero-copy">
+          <p class="label">Today’s study thesis</p>
+          <h2>Turn scattered revision into a mapped study night.</h2>
+          <p>Track homework, exam dates, chapter progress, study streaks, revision notes, and focus sessions from one board-exam desk.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" type="button" data-scroll="#pomodoroPanel">Start focus block</button>
+            <button class="ghost-btn" type="button" data-scroll="#tasks">Review homework</button>
+          </div>
+        </div>
+
+        <div class="constellation-card" aria-label="Study constellation visual">
+          <span class="node node-large">Boards</span>
+          <span class="node node-small node-a">Math</span>
+          <span class="node node-small node-b">Sci</span>
+          <span class="node node-small node-c">SST</span>
+          <span class="orbit orbit-one"></span>
+          <span class="orbit orbit-two"></span>
+        </div>
+      </article>
+
+      <article class="metric-card glass-card"><p class="label">Homework</p><strong id="metricHomework">0</strong><span>pending today</span></article>
+      <article class="metric-card glass-card"><p class="label">Study streak</p><strong id="metricStreak">0</strong><span>days protected</span></article>
+      <article class="metric-card glass-card"><p class="label">Subject progress</p><strong id="metricSubjectProgress">0%</strong><span>average complete</span></article>
+    </section>
+
+    <section class="section dashboard-panels reveal">
+      <article class="glass-card progress-panel">
+        <div class="section-heading">
+          <div><p class="label">Dashboard analytics</p><h2>Board prep snapshot</h2></div>
+          <span class="pill" id="weeklyProgressPill">0% weekly</span>
+        </div>
+        <div class="analytics-grid">
+          <div><span>Total homework</span><strong id="analyticsTotalHomework">0</strong></div>
+          <div><span>Completed</span><strong id="analyticsCompletedHomework">0</strong></div>
+          <div><span>Pending</span><strong id="analyticsPendingHomework">0</strong></div>
+          <div><span>Upcoming exams</span><strong id="analyticsUpcomingExams">0</strong></div>
+          <div><span>Current streak</span><strong id="analyticsCurrentStreak">0</strong></div>
+          <div><span>Longest streak</span><strong id="analyticsLongestStreak">0</strong></div>
+        </div>
+      </article>
+
+      <article class="glass-card session-panel" id="pomodoroPanel">
+        <p class="label">Pomodoro study timer</p>
+        <h2 id="timerModeLabel">Focus mode</h2>
+        <p>25-minute focus • 5-minute break</p>
+        <div class="focus-time" id="timerDisplay">25:00</div>
+        <div class="inline-actions">
+          <button class="primary-btn small-btn" id="timerStart" type="button">Start</button>
+          <button class="ghost-btn small-btn" id="timerPause" type="button">Pause</button>
+          <button class="ghost-btn small-btn" id="timerReset" type="button">Reset</button>
+        </div>
+        <span class="pill" id="sessionCounter">0 focus sessions</span>
+      </article>
+    </section>
+
+    <section class="section dashboard-panels reveal">
+      <article class="glass-card progress-panel">
+        <div class="section-heading">
+          <div><p class="label">Daily study goals</p><h2>Today’s promises</h2></div>
+          <span class="pill" id="goalProgressPill">0% complete</span>
+        </div>
+        <form class="tool-form" id="goalForm">
+          <input type="hidden" id="goalId" />
+          <input id="goalText" type="text" placeholder="Add a daily goal, e.g. Revise light chapter" required />
+          <button class="primary-btn small-btn" type="submit">Save goal</button>
+        </form>
+        <div class="item-list" id="goalsList"></div>
+      </article>
+
+      <article class="glass-card session-panel">
+        <p class="label">Study streak</p>
+        <h2>Mark today studied</h2>
+        <p>Use this when you complete a meaningful study session.</p>
+        <div class="focus-time mini-focus" id="streakDisplay">0</div>
+        <div class="inline-actions">
+          <button class="primary-btn small-btn" id="markStudiedBtn" type="button">Mark studied today</button>
+          <button class="ghost-btn small-btn" id="resetStreakBtn" type="button">Reset</button>
+        </div>
+        <span class="pill" id="longestStreakPill">Longest: 0 days</span>
+      </article>
+    </section>
+
+    <section id="timetable" class="section reveal">
+      <div class="section-heading">
+        <div><p class="label">Editable timetable</p><h2>Monday to Saturday plan</h2></div>
+        <span class="pill">Saved locally</span>
+      </div>
+      <article class="glass-card manager-card">
+        <form class="tool-form multi-form" id="periodForm">
+          <input type="hidden" id="periodId" />
+          <select id="periodDay" required>
+            <option value="Monday">Monday</option><option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option><option value="Saturday">Saturday</option>
+          </select>
+          <input id="periodTime" type="text" placeholder="Time, e.g. 8:00 AM" required />
+          <select id="periodSubject" required></select>
+          <input id="periodTopic" type="text" placeholder="Topic / period note" required />
+          <button class="primary-btn small-btn" type="submit">Save period</button>
+        </form>
+        <div class="timetable-board" id="timetableBoard"></div>
+      </article>
+    </section>
+
+    <section id="tasks" class="section reveal">
+      <div class="section-heading">
+        <div><p class="label">Homework manager</p><h2>Assignments to close</h2></div>
+        <span class="pill" id="homeworkCountPill">0 open</span>
+      </div>
+      <article class="glass-card manager-card">
+        <form class="tool-form multi-form" id="homeworkForm">
+          <input type="hidden" id="homeworkId" />
+          <select id="homeworkSubject" required></select>
+          <input id="homeworkTitle" type="text" placeholder="Homework title" required />
+          <input id="homeworkDue" type="date" required />
+          <button class="primary-btn small-btn" type="submit">Save homework</button>
+        </form>
+        <div class="filter-row">
+          <select id="homeworkSubjectFilter"><option value="all">All subjects</option></select>
+          <select id="homeworkStatusFilter"><option value="all">All status</option><option value="pending">Pending</option><option value="completed">Completed</option></select>
+        </div>
+        <div class="item-list" id="homeworkList"></div>
+      </article>
+    </section>
+
+    <section id="subjects" class="section reveal">
+      <div class="section-heading">
+        <div><p class="label">Subject progress tracker</p><h2>Learning shelves</h2></div>
+        <span class="pill">Editable chapters</span>
+      </div>
+      <div class="card-grid subject-grid" id="subjectsGrid"></div>
+    </section>
+
+    <section id="exams" class="section reveal">
+      <div class="section-heading">
+        <div><p class="label">Board exam countdown</p><h2>Dates that shape the plan</h2></div>
+        <span class="pill">Nearest first</span>
+      </div>
+      <article class="glass-card manager-card">
+        <form class="tool-form multi-form" id="examForm">
+          <input type="hidden" id="examId" />
+          <input id="examName" type="text" placeholder="Exam name" required />
+          <select id="examSubject" required></select>
+          <input id="examDate" type="date" required />
+          <button class="primary-btn small-btn" type="submit">Save exam</button>
+        </form>
+        <div class="card-grid three-grid" id="examList"></div>
+      </article>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div><p class="label">Quick revision vault</p><h2>Formulas, definitions, dates, notes</h2></div>
+        <span class="pill">Personal memory bank</span>
+      </div>
+      <article class="glass-card manager-card">
+        <form class="tool-form multi-form" id="noteForm">
+          <input type="hidden" id="noteId" />
+          <select id="noteType" required><option>Formula</option><option>Definition</option><option>Important date</option><option>Short note</option></select>
+          <select id="noteSubject" required></select>
+          <input id="noteTitle" type="text" placeholder="Title" required />
+          <textarea id="noteBody" placeholder="Write the revision note" required></textarea>
+          <button class="primary-btn small-btn" type="submit">Save note</button>
+        </form>
+        <div class="item-list notes-list" id="notesList"></div>
+      </article>
+    </section>
+  </main>
+
+  <div class="auth-modal" id="authModal" aria-hidden="true">
+    <div class="auth-backdrop" data-auth-close></div>
+    <section class="auth-dialog glass-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth-close" type="button" data-auth-close aria-label="Close account panel">×</button>
+      <p class="label">StudySync account</p>
+      <h2 id="authTitle">Welcome back to your desk.</h2>
+      <p class="auth-copy">Create a local account or log in to keep this dashboard remembered on this browser.</p>
+
+      <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+        <button class="auth-tab active" id="loginTab" type="button" data-auth-mode="login">Login</button>
+        <button class="auth-tab" id="signupTab" type="button" data-auth-mode="signup">Sign up</button>
+      </div>
+
+      <form class="auth-form" id="authForm">
+        <input id="authName" type="text" placeholder="Your name" autocomplete="name" />
+        <input id="authEmail" type="email" placeholder="Email address" autocomplete="email" required />
+        <input id="authPassword" type="password" placeholder="Password" autocomplete="current-password" required minlength="4" />
+        <label class="remember-row">
+          <input id="rememberMe" type="checkbox" checked />
+          <span>Remember me on this browser</span>
+        </label>
+        <button class="primary-btn" id="authSubmit" type="submit">Login</button>
+      </form>
+
+      <p class="auth-message" id="authMessage" role="status"></p>
+      <button class="ghost-btn logout-btn" id="logoutBtn" type="button">Log out</button>
+      <p class="auth-note">Frontend-only demo: account data is stored in this browser’s Local Storage.</p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
